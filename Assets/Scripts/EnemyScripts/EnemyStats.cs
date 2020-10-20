@@ -1,41 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
-    public List<TowerData> towerData = new List<TowerData>();
     [SerializeField]
-    private int _health, _goldReward, _damage, i = 0;
-    EnemyCreation enemyList;
-    GameSystems gameSystems;
-    UpgradeMenu upgradeMenu;
+    UpgradeCoinData upgradeCoinData;
     [SerializeField]
     List<GameObject> Points = new List<GameObject>();
     [SerializeField]
-    float speed, currentSpeed, distanceBetween = 0.25f;
-    [SerializeField]
+    EnemyData enemyData;
+    public List<TowerData> towerData = new List<TowerData>();
+    EnemyCreation enemyList;
+    GameSystems gameSystems;
+    UpgradeMenu upgradeMenu;
     GameObject spawnPoint;
+    float _currentSpeed;
+    [HideInInspector]
     public bool isFrozen, isBurning;
-    [SerializeField]
-    UpgradeCoinData upgradeCoinData;
+    private int _health, i = 0;
+    private Slider slider;
+    private Image mobImage;
+    private TextMeshProUGUI mobName, healthText;
+    private bool changeMob;
     void Start()
     {
         upgradeMenu = GameObject.Find("UpgradeManager").GetComponent<UpgradeMenu>();
-        spawnPoint = GameObject.Find("SpawnPoint");
         enemyList = GameObject.Find("GameManager").GetComponent<EnemyCreation>();
         gameSystems = GameObject.Find("GameManager").GetComponent<GameSystems>();
+        slider = GameObject.Find("health").GetComponent<Slider>();
+        mobImage = GameObject.Find("MobImage").GetComponent<Image>();
+        mobName = GameObject.Find("MobName").GetComponent<TextMeshProUGUI>();
+        healthText = GameObject.Find("healthIndicator").GetComponent<TextMeshProUGUI>();
+        spawnPoint = GameObject.Find("SpawnPoint");
         for (int i = 0; i < Points.Count; i++)
         {
             Points[i] = GameObject.Find("Point_" + i);
         }
-        _health *= upgradeCoinData.difficulty;
-        speed *= upgradeCoinData.difficulty;
-        currentSpeed = speed;
-
+        _currentSpeed = enemyData.speed * upgradeCoinData.difficulty;
+        _health = enemyData.maxHealth * upgradeCoinData.difficulty;
+        gameObject.GetComponent<Image>().sprite = enemyData.mobImage;
         StartCoroutine(MovingToPoints());
         StartCoroutine(Aliments());
-
     }
     public void DamageTaken(int damage)
     {
@@ -48,7 +56,7 @@ public class EnemyStats : MonoBehaviour
     private void Death()
     {
         enemyList.enemyList.Remove(this.gameObject);
-        gameSystems.coins += _goldReward;
+        gameSystems.coins += enemyData.goldReward;
         upgradeMenu.enemiesKilled++;
         Destroy(this.gameObject);
     }
@@ -58,10 +66,10 @@ public class EnemyStats : MonoBehaviour
         {
             if (isFrozen)
             {
-                currentSpeed = speed * towerData[1].slowMultiplier;
+                _currentSpeed = (enemyData.speed * upgradeCoinData.difficulty) * towerData[1].slowMultiplier;
                 yield return new WaitForSeconds(1f);
                 isFrozen = false;
-                currentSpeed = speed;
+                _currentSpeed = (enemyData.speed * upgradeCoinData.difficulty);
             }
             else if (isBurning)
             {
@@ -82,18 +90,37 @@ public class EnemyStats : MonoBehaviour
         int targetPoint = 0;
         while (true)
         {
-            if (Vector3.Distance(Points[targetPoint].transform.position, transform.position) < distanceBetween)
+            if (Vector3.Distance(Points[targetPoint].transform.position, transform.position) < 0.25f)
             {
                 targetPoint++;
                 if (targetPoint == Points.Count)
                 {
                     targetPoint = 0;
-                    gameSystems.Health -= _damage;
+                    gameSystems.Health -= enemyData.damage;
                     transform.position = spawnPoint.transform.position;
                 }
             }
-            transform.position = Vector3.MoveTowards(transform.position, Points[targetPoint].transform.position, currentSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, Points[targetPoint].transform.position, _currentSpeed * Time.deltaTime);
             yield return null;
         }
+    }
+    public void UpdateInfo()
+    {
+        StartCoroutine(HPUpdate());
+    }
+    IEnumerator HPUpdate()
+    {
+        float t = 0;
+        while(t < 0.1)
+        {
+            t += Time.deltaTime;
+            mobImage.sprite = enemyData.mobImage;
+            mobName.text = enemyData.enemyName;
+            slider.maxValue = enemyData.maxHealth;
+            slider.value = _health;
+            healthText.text = $"{_health}/{enemyData.maxHealth}";
+            yield return null;
+        }
+        yield return null;
     }
 }

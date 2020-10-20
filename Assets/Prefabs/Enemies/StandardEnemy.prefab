@@ -119,7 +119,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4368823515096553534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4368823515096553532}
+        m_MethodName: UpdateInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4368823515096553532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,27 +143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d7b5b22715e314494907bba0f15ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerData:
-  - {fileID: 11400000, guid: b3f4121b88ba36f45923b21b6ed8e17e, type: 2}
-  - {fileID: 11400000, guid: e00f6005119c36d47b737724aac14d3b, type: 2}
-  - {fileID: 11400000, guid: a9e51825946899440ac97c09cc947ea5, type: 2}
-  _health: 5
-  _goldReward: 1
-  _damage: 1
-  i: 0
+  upgradeCoinData: {fileID: 11400000, guid: cd24b5c10b1a0ec498ac3ab33b6cc7b1, type: 2}
   Points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2
-  currentSpeed: 0
-  distanceBetween: 0.25
-  spawnPoint: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 56268dba9dfe0644c9f7ed04c5c7bb8f, type: 2}
+  towerData:
+  - {fileID: 11400000, guid: b3f4121b88ba36f45923b21b6ed8e17e, type: 2}
+  - {fileID: 11400000, guid: e00f6005119c36d47b737724aac14d3b, type: 2}
+  - {fileID: 11400000, guid: a9e51825946899440ac97c09cc947ea5, type: 2}
   isFrozen: 0
   isBurning: 0
-  upgradeCoinData: {fileID: 11400000, guid: cd24b5c10b1a0ec498ac3ab33b6cc7b1, type: 2}
 --- !u!1 &4368823516817125254
 GameObject:
   m_ObjectHideFlags: 0
