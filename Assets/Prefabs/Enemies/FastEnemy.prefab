@@ -132,23 +132,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d7b5b22715e314494907bba0f15ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeCoinData: {fileID: 11400000, guid: cd24b5c10b1a0ec498ac3ab33b6cc7b1, type: 2}
   Points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyData: {fileID: 11400000, guid: a6fc580d2366611429da330db9871e4e, type: 2}
   towerData:
   - {fileID: 11400000, guid: b3f4121b88ba36f45923b21b6ed8e17e, type: 2}
   - {fileID: 11400000, guid: e00f6005119c36d47b737724aac14d3b, type: 2}
   - {fileID: 11400000, guid: a9e51825946899440ac97c09cc947ea5, type: 2}
-  _health: 5
-  i: 0
-  enemyData: {fileID: 11400000, guid: a6fc580d2366611429da330db9871e4e, type: 2}
-  spawnPoint: {fileID: 0}
   isFrozen: 0
   isBurning: 0
-  upgradeCoinData: {fileID: 11400000, guid: cd24b5c10b1a0ec498ac3ab33b6cc7b1, type: 2}
 --- !u!1 &4368823516817125254
 GameObject:
   m_ObjectHideFlags: 0

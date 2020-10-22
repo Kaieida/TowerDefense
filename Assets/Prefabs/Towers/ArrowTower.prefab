@@ -335,8 +335,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e30eb9c3272550d49acfb818d86bd67b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -402,7 +402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerData: {fileID: 11400000, guid: b3f4121b88ba36f45923b21b6ed8e17e, type: 2}
   arrow: {fileID: 7484847271072083649, guid: 684b6f5394f5b5f4983dc8485eb8ea79, type: 3}
-  button: {fileID: 4213771576359591889}
 --- !u!114 &4213771576359591894
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4368823515096553532}
-        m_MethodName: UpdateInfo
+        m_MethodName: SendInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeCoinData: {fileID: 11400000, guid: cd24b5c10b1a0ec498ac3ab33b6cc7b1, type: 2}
   Points:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

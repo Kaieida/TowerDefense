@@ -22,29 +22,6 @@ public class MainMenuManager : MonoBehaviour
         iceTowerSlow.text = iceTower.slowMultiplier.ToString();
         fireTowerDmg.text = fireTower.attackDamage.ToString();
         fireTowerDOT.text = fireTower.dotDamage.ToString();
-
-    }
-    public void ChooseDifficulty()
-    {
-        if (difficultyPanel.activeSelf)
-        {
-            difficultyPanel.SetActive(false);
-        }
-        else if (!difficultyPanel.activeSelf)
-        {
-            difficultyPanel.SetActive(true);
-        }
-    }
-    public void UpgradePanel()
-    {
-        if (upgradePanel.activeSelf)
-        {
-            upgradePanel.SetActive(false);
-        }
-        else if (!upgradePanel.activeSelf)
-        {
-            upgradePanel.SetActive(true);
-        }
     }
     public void StartGame(int diffMulti)
     {

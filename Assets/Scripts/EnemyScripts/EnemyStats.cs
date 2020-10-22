@@ -17,24 +17,18 @@ public class EnemyStats : MonoBehaviour
     GameSystems gameSystems;
     UpgradeMenu upgradeMenu;
     GameObject spawnPoint;
+    MobInfo mobInfo;
     float _currentSpeed;
     [HideInInspector]
     public bool isFrozen, isBurning;
     private int _health, i = 0;
-    private Slider slider;
-    private Image mobImage;
-    private TextMeshProUGUI mobName, healthText;
-    private bool changeMob;
     void Start()
     {
         upgradeMenu = GameObject.Find("UpgradeManager").GetComponent<UpgradeMenu>();
         enemyList = GameObject.Find("GameManager").GetComponent<EnemyCreation>();
         gameSystems = GameObject.Find("GameManager").GetComponent<GameSystems>();
-        slider = GameObject.Find("health").GetComponent<Slider>();
-        mobImage = GameObject.Find("MobImage").GetComponent<Image>();
-        mobName = GameObject.Find("MobName").GetComponent<TextMeshProUGUI>();
-        healthText = GameObject.Find("healthIndicator").GetComponent<TextMeshProUGUI>();
         spawnPoint = GameObject.Find("SpawnPoint");
+        mobInfo = GameObject.Find("MobInfo").GetComponent<MobInfo>();
         for (int i = 0; i < Points.Count; i++)
         {
             Points[i] = GameObject.Find("Point_" + i);
@@ -104,23 +98,12 @@ public class EnemyStats : MonoBehaviour
             yield return null;
         }
     }
-    public void UpdateInfo()
+    public void SendInfo()
     {
-        StartCoroutine(HPUpdate());
-    }
-    IEnumerator HPUpdate()
-    {
-        float t = 0;
-        while(t < 0.1)
-        {
-            t += Time.deltaTime;
-            mobImage.sprite = enemyData.mobImage;
-            mobName.text = enemyData.enemyName;
-            slider.maxValue = enemyData.maxHealth;
-            slider.value = _health;
-            healthText.text = $"{_health}/{enemyData.maxHealth}";
-            yield return null;
-        }
-        yield return null;
+
+        mobInfo.maxHealth = enemyData.maxHealth;
+        mobInfo.currentHealth = _health;
+        mobInfo.mobName = enemyData.enemyName;
+        mobInfo.mobImage = enemyData.mobImage;
     }
 }
