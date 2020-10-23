@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Fire dog
   speed: 4
-  maxHealth: 5
+  maxHealth: 10
   goldReward: 2
   damage: 2
+  mobImage: {fileID: 21300000, guid: 9a7d9336e7e0e8945887eb65dd2c120c, type: 3}

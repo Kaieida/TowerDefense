@@ -11,6 +11,7 @@ public class TowerButton : MonoBehaviour
     GameObject subTowerMenu;
     GameSystems gameSystems;
     public bool localState;
+    private GameObject tempObj;
     TowerMenu towerMenu;
     [SerializeField]
     private int towerCost = 0;
@@ -42,7 +43,8 @@ public class TowerButton : MonoBehaviour
         {
             gameSystems.coins -= tower.GetComponent<TowerButton>().towerCost;
             Debug.Log(gameSystems.coins);
-            Instantiate(tower, transform.position, Quaternion.identity, canvas);
+            tempObj = Instantiate(tower, transform.position, Quaternion.identity, canvas);
+            tempObj.transform.SetAsFirstSibling();
             //moneySystem.coins -= towerCost;
             TowerDestruction();
         }

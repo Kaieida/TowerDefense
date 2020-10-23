@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemyStats : MonoBehaviour
     [HideInInspector]
     public bool isFrozen, isBurning;
     private int _health, i = 0;
+    static UnityEvent healthChange = new UnityEvent();
     void Start()
     {
         upgradeMenu = GameObject.Find("UpgradeManager").GetComponent<UpgradeMenu>();
@@ -42,6 +44,7 @@ public class EnemyStats : MonoBehaviour
     public void DamageTaken(int damage)
     {
         _health -= damage;
+        EnemyStats.healthChange.Invoke();
         if (_health <= 0)
         {
             Death();
@@ -100,7 +103,8 @@ public class EnemyStats : MonoBehaviour
     }
     public void SendInfo()
     {
-
+        EnemyStats.healthChange.RemoveAllListeners();
+        EnemyStats.healthChange.AddListener(this.SendInfo);
         mobInfo.maxHealth = enemyData.maxHealth;
         mobInfo.currentHealth = _health;
         mobInfo.mobName = enemyData.enemyName;

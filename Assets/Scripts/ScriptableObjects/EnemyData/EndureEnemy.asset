@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Ogre
   speed: 2
-  maxHealth: 4
+  maxHealth: 15
   goldReward: 2
   damage: 2
-  mobImage: {fileID: 0}
+  mobImage: {fileID: 21300000, guid: b207c21b00c338249b7c35e71d0c4e3c, type: 3}

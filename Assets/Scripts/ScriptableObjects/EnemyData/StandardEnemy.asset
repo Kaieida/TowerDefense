@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Goblin
   speed: 2
-  maxHealth: 5
+  maxHealth: 10
   goldReward: 1
   damage: 1
-  mobImage: {fileID: 21300000, guid: fc504e446ef221d4ebc4674715667bf3, type: 3}
+  mobImage: {fileID: 21300000, guid: 85433ee7a0c18504a8dee76f334932e5, type: 3}

@@ -26,7 +26,7 @@ public class GameSystems : MonoBehaviour
     }
     void Awake()
     {
-        startingCoins = 10;
+        startingCoins = 5;
         coins = startingCoins;
         maxHealth = 10;
         _health = maxHealth;

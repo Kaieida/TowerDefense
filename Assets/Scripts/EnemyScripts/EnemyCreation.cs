@@ -23,6 +23,7 @@ public class EnemyCreation : MonoBehaviour
         foreach (GameObject enemy in enemyWaves[gameController.level].enemySpawnList)
         {
             enemyCreation = Instantiate(enemy, spawnPoint.transform.position, Quaternion.identity, canvas);
+            enemyCreation.transform.SetAsFirstSibling();
             enemyList.Add(enemyCreation);
             yield return new WaitForSeconds(0.5f);
         }

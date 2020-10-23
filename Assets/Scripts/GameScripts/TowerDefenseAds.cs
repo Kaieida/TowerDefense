@@ -25,14 +25,12 @@ public class TowerDefenseAds : MonoBehaviour
 #endif
 
         // Create a 320x50 banner at the top of the screen.
-        this.bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+        this.bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
 
         // Load the banner with the request.
         this.bannerView.LoadAd(request);
-        AdSize adSize = new AdSize(300, 250);
-        BannerView bannerView = new BannerView(adUnitId, AdSize.Banner, 0, 50);
 
     }
 }

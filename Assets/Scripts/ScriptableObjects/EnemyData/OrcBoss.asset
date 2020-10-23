@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Orc
   speed: 4
-  maxHealth: 40
+  maxHealth: 45
   goldReward: 5
   damage: 5
-  mobImage: {fileID: 0}
+  mobImage: {fileID: 21300000, guid: ca0c134d3d4f15f4ba1ffbe96aaa8483, type: 3}
