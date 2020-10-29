@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpgradeCoinSystem
   m_EditorClassIdentifier: 
   upgradeCoins: 0
-  difficulty: 0
+  difficulty: 1

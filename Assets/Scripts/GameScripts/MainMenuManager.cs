@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     TowerData arrowTower, fireTower, iceTower;
     [SerializeField]
-    TextMeshProUGUI arrowTowerDmg, arrowTowerSpeed, iceTowerDmg, iceTowerSlow, fireTowerDmg, fireTowerDOT;
+    TextMeshProUGUI arrowTowerDmg, arrowTowerSpeed, iceTowerDmg, iceTowerSlow, fireTowerDmg, fireTowerDOT, coinAmount;
     [SerializeField]
     UpgradeCoinData upgradeMenuData;
     private void Update()
@@ -22,6 +22,7 @@ public class MainMenuManager : MonoBehaviour
         iceTowerSlow.text = iceTower.slowMultiplier.ToString();
         fireTowerDmg.text = fireTower.attackDamage.ToString();
         fireTowerDOT.text = fireTower.dotDamage.ToString();
+        coinAmount.text = upgradeMenuData.upgradeCoins.ToString();
     }
     public void StartGame(int diffMulti)
     {

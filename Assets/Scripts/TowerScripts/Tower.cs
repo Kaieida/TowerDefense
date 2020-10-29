@@ -10,7 +10,6 @@ public class Tower : MonoBehaviour
     protected EnemyStats enemyStats;
     protected EnemyCreation enemyListManager;
     protected GameSystems gameSystems;
-    //protected TowerCreation towerCreation;
     private GameObject projectile;
     void OnDrawGizmos()
     {

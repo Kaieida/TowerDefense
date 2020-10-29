@@ -15,7 +15,7 @@ public class UpgradeMenu : MonoBehaviour
     }
     public void GameEndRewards(int difficulty)
     {
-        coinsForLevel += (enemiesKilled / 10) * difficulty;
-        upgradeCoinData.upgradeCoins = coinsForLevel;
+        coinsForLevel = (enemiesKilled / 5) * difficulty;
+        upgradeCoinData.upgradeCoins += coinsForLevel;
     }
 }

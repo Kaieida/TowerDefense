@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public int level;
+    public int level, maxLevel = 1;
     [SerializeField]
     GameObject gameOverPanel;
     [SerializeField]
@@ -22,6 +22,10 @@ public class GameController : MonoBehaviour
     public void StartNextWave(int level)
     {
         this.level += level;
+        if(this.level > maxLevel)
+        {
+            this.level = 0;
+        }
     }
     public void LoadMainMenu()
     {
@@ -33,6 +37,5 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(true);
         coinsEarned.text = upgradeMenu.coinsForLevel.ToString();
         enemiesKilled.text = upgradeMenu.enemiesKilled.ToString();
-
     }
 }
